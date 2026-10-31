@@ -1,5 +1,26 @@
 # OMEN ACPI Toolkit
 
+> **This fork adds Omarchy support.** [Omarchy](https://omarchy.org/) boots
+> Limine unified kernel images, so the CachyOS install workflow below does not
+> apply. Use the [`omarchy/`](omarchy/README.md) adapter instead: it reuses the
+> upstream collect/build/verify scripts unchanged and installs the verified
+> override through mkinitcpio's `acpi_override` hook, with a snapshot, an
+> uninstaller and a BIOS-change guard.
+>
+> Validated on an OMEN Gaming Laptop 16-ap0xxx (board 8E35, BIOS F.13, RTX 5060)
+> with Omarchy 4.0.6: after shutdown the laptop stays cool and the battery drops
+> about 1 % in 35 minutes instead of 15-50 %.
+>
+> ```bash
+> git clone https://github.com/jmreluzz/omen-acpi.git
+> cd omen-acpi
+> less omarchy/README.md
+> ```
+>
+> Upstream project: [paolo-de-marinis/omen-acpi](https://github.com/paolo-de-marinis/omen-acpi).
+> Pull request: [#5](https://github.com/paolo-de-marinis/omen-acpi/pull/5).
+> Everything below is the upstream README.
+
 OMEN ACPI Toolkit is an experimental Linux tool for one incomplete-shutdown
 problem observed on an HP OMEN MAX 16-ap0006sl. On that laptop, Linux could
 appear to finish an S5 shutdown while the discrete NVIDIA GPU remained powered,
